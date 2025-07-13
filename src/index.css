@@ -1,0 +1,114 @@
+/* Anda bisa menggunakan Tailwind CSS atau CSS Modules untuk styling yang lebih terstruktur */
+/* Ini adalah contoh dasar */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Latar belakang halaman */
+  color: #333;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Scrollbar styles (optional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+.header-visible {
+  transform: translateY(0);
+}
+
+:root {
+  --suitmedia-orange: #ff6f00; /* Atau warna oranye yang lebih akurat dari desain */
+}
+
+/* Kelas kustom untuk latar belakang oranye */
+.bg-suitmedia-orange {
+  background-color: var(--suitmedia-orange) !important; /* Penting agar menimpa default Bootstrap */
+}
+
+/* Kelas untuk efek header hide/show */
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+.header-visible {
+  transform: translateY(0);
+}
+
+/* Kelas untuk active state saat header digulir */
+.nav-link-active {
+  color: var(--suitmedia-orange) !important; /* Warna oranye saat aktif dan digulir */
+  /* Anda bisa tambahkan underline atau border-bottom jika diperlukan */
+  border-bottom: 2px solid var(--suitmedia-orange);
+  padding-bottom: 5px; /* Sesuaikan padding agar tidak tumpang tindih dengan teks */
+}
+
+/* Kelas untuk active state saat header tidak digulir (default orange) */
+.nav-link-active-orange {
+  color: #fff !important; /* Pastikan teks tetap putih */
+  border-bottom: 2px solid #fff; /* Garis bawah putih */
+  padding-bottom: 5px;
+}
+
+/* Override padding default Navbar.Brand untuk logo jika terlalu besar */
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Atur jarak antar menu item jika default Bootstrap tidak sesuai */
+.navbar-nav .nav-link {
+  padding-right: 1.25rem; /* Sesuaikan jarak */
+  padding-left: 1.25rem; /* Sesuaikan jarak */
+}
+
+/* Responsif: Atur agar menu di mobile tidak menempel */
+@media (max-width: 991.98px) { /* breakpoint Bootstrap lg */
+  .navbar-nav {
+    text-align: center;
+    margin-top: 15px; /* Sedikit jarak dari toggle button */
+  }
+  .navbar-nav .nav-link {
+    padding: 10px 0; /* Padding vertikal untuk menu mobile */
+  }
+}

@@ -46,7 +46,7 @@ const Header = () => {
         <Navbar.Brand href="#">
           {/* Lokasi penempatan logo */}
           <img
-            src="/src/assets/images/suitmedia-logo.png" // Path logo
+            src="/suitmedia-logo.png" // Path logo
             alt="SuitMedia Logo"
             height="40" // Sesuaikan tinggi logo
           />

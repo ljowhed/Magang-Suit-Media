@@ -1,21 +1,22 @@
-    import axios from 'axios';
+ import axios from 'axios';
 
-    // Konfigurasi Axios instance
+    // Vite secara otomatis menyediakan import.meta.env.PROD
+    // Ini akan bernilai true di production build (Vercel) dan false di development (lokal)
+    const isProduction = import.meta.env.PROD;
+
     const api = axios.create({
-      // baseURL harus mengarah ke path proxy lokal Anda
-      // Permintaan ke '/api' akan ditangani oleh proxy Vite
-      baseURL: '/api',
+      // Jika di production, gunakan URL API lengkap.
+      // Jika di development (lokal), gunakan proxy '/api'.
+      baseURL: isProduction
+        ? import.meta.env.VITE_API_BASE_URL // Menggunakan variabel lingkungan yang sudah diatur di Vercel
+        : '/api',
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
-    // Anda bisa menambahkan interceptors di sini jika perlu (misalnya untuk error handling)
-
     export const getIdeas = async (params) => {
       try {
-        // Pemanggilan ini akan menjadi GET /api/ideas
-        // Vite proxy akan meneruskannya ke https://suitmedia-backend.suitdev.com/api/ideas
         const response = await api.get('/ideas', { params });
         return response.data;
       } catch (error) {
